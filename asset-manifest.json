@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mukulchaudhary959/personal-bookshelf-react.git/static/css/main.21b74052.css",
+    "main.js": "/mukulchaudhary959/personal-bookshelf-react.git/static/js/main.5cc21f74.js",
+    "static/js/453.f768d29d.chunk.js": "/mukulchaudhary959/personal-bookshelf-react.git/static/js/453.f768d29d.chunk.js",
+    "index.html": "/mukulchaudhary959/personal-bookshelf-react.git/index.html",
+    "main.21b74052.css.map": "/mukulchaudhary959/personal-bookshelf-react.git/static/css/main.21b74052.css.map",
+    "main.5cc21f74.js.map": "/mukulchaudhary959/personal-bookshelf-react.git/static/js/main.5cc21f74.js.map",
+    "453.f768d29d.chunk.js.map": "/mukulchaudhary959/personal-bookshelf-react.git/static/js/453.f768d29d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.21b74052.css",
+    "static/js/main.5cc21f74.js"
+  ]
+}
