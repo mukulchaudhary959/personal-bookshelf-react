@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import BookSearch from './components/BookSearch';
+import Bookshelf from './components/Bookshelf';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [bookshelf, setBookshelf] = useState([]);
+
+  useEffect(() => {
+    const storedBookshelf = JSON.parse(localStorage.getItem('bookshelf')) || [];
+    setBookshelf(storedBookshelf);
+  }, []);
+
+  const addToBookshelf = (title) => {
+    const newBookshelf = [...bookshelf, title];
+    setBookshelf(newBookshelf);
+    localStorage.setItem('bookshelf', JSON.stringify(newBookshelf));
+  };
+
+  const removeFromBookshelf = (title) => {
+    const newBookshelf = bookshelf.filter(book => book !== title);
+    setBookshelf(newBookshelf);
+    localStorage.setItem('bookshelf', JSON.stringify(newBookshelf));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        <nav>
+          <Link to="/bookshelf" className="bookshelf-button">My Bookshelf</Link>
+        </nav>
+        <Routes id="route-id">
+          <Route exact path="/" element={<BookSearch onAddToBookshelf={addToBookshelf} bookshelf={bookshelf} />} />
+          <Route path="/bookshelf" element={<Bookshelf bookshelf={bookshelf} onRemoveFromBookshelf={removeFromBookshelf} />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
